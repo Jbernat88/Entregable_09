@@ -1282,6 +1282,8 @@ MonoBehaviour:
   VolumeValue: 0
   UsernameText: {fileID: 1649108826}
   DificultyText: {fileID: 0}
+  VolumeSlider: {fileID: 1156157156}
+  ToggleMusic: {fileID: 1686572210}
 --- !u!4 &394058233
 Transform:
   m_ObjectHideFlags: 0
@@ -1737,6 +1739,7 @@ MonoBehaviour:
   HardMode: 0
   UsernameText: 
   VolumeValue: 0
+  MusicToggle: 0
 --- !u!4 &557619221
 Transform:
   m_ObjectHideFlags: 0

@@ -15,6 +15,10 @@ public class DataPersistence : MonoBehaviour
 
     public float VolumeValue;
 
+    public int MusicToggle;
+
+
+
 
     // Nos aseguramos de que la instancia sea única
     private void Awake()
@@ -44,6 +48,8 @@ public class DataPersistence : MonoBehaviour
         PlayerPrefs.SetString("USERNAME", UsernameText);
 
         PlayerPrefs.SetFloat("VOLUMEVALUE", VolumeValue);
+
+        PlayerPrefs.SetInt("MUSIC", MusicToggle);
     }
 
 

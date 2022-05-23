@@ -25,6 +25,11 @@ public class OptionsUIMenu : MonoBehaviour
     public TextMeshProUGUI DificultyText;
     private bool HardMode;
 
+    public Slider VolumeSlider;
+
+    public Toggle ToggleMusic;
+    private int MusicOnOff;
+
 
 
     // Start is called before the first frame update
@@ -33,6 +38,8 @@ public class OptionsUIMenu : MonoBehaviour
         OptionButtom.SetActive(false); //Por defecto esta activado el panel del menu
 
         LevelsText.text = "Level: " + Level;
+
+        LoadUserOptions();
     }
 
     public void Options()
@@ -92,6 +99,8 @@ public class OptionsUIMenu : MonoBehaviour
 
         DataPersistence.sharedInstance.VolumeValue = VolumeValue;
 
+        DataPersistence.sharedInstance.MusicToggle= MusicOnOff;
+
         // Persistencia de datos entre partidas
         DataPersistence.sharedInstance.SaveForFutureGames();
     }
@@ -108,6 +117,10 @@ public class OptionsUIMenu : MonoBehaviour
             UsernameText.text = PlayerPrefs.GetString("USERNAME");
 
             VolumeValue = PlayerPrefs.GetFloat("VOLUMEVALUE");
+            LoadVolume();
+
+            MusicOnOff = PlayerPrefs.GetInt("MUSIC");
+            LoadMusic();
 
             //HardMode = PlayerPrefs.GetBool("MODE");
         }
@@ -116,6 +129,41 @@ public class OptionsUIMenu : MonoBehaviour
     private void UpdateLevel()
     {
         LevelsText.text = "Level: " + Level;
+    }
+
+    public void UpdateVolume() //Actualiza el Volumen
+    {
+        VolumeValue = VolumeSlider.value;
+    }
+
+    public void LoadVolume() //Se mantiene
+    {
+        VolumeSlider.value = VolumeValue;
+    }
+
+    public void UpdateToggle()
+    {
+        if(ToggleMusic.isOn == true)
+        {
+            MusicOnOff = 0;
+        }
+        else
+        {
+            MusicOnOff = 1;
+        }
+    }
+
+    public void LoadMusic()
+    {
+        if(MusicOnOff == 0)
+        {
+            ToggleMusic.isOn = true;
+        }
+
+        else
+        {
+            ToggleMusic.isOn = false;
+        }
     }
 
 }

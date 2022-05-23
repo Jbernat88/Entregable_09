@@ -8,10 +8,11 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager sharedInstance;
+    public AudioSource GenerateAudioSource;
 
     public TextMeshProUGUI Level;
 
-    public TextMeshProUGUI HardMode;
+    public TextMeshProUGUI MusicToggle;
 
     public TextMeshProUGUI UsernameText;
 
@@ -38,11 +39,27 @@ public class GameManager : MonoBehaviour
 
     public void ApplyUserOptions()
     {
-
         Level.text = $"Level: { DataPersistence.sharedInstance.Level}";
-        HardMode.text = $"Hard Mode: {DataPersistence.sharedInstance.HardMode}";
+        MusicToggle.text = $"Music: {DataPersistence.sharedInstance.MusicToggle}";
         UsernameText.text = $"Username: {DataPersistence.sharedInstance.UsernameText}";
-        VolumeValue.text = $"Volume: { DataPersistence.sharedInstance.VolumeValue}$";
+        VolumeValue.text = $"Volume: { DataPersistence.sharedInstance.VolumeValue}";
+
+        MusicOnOff();
+    }
+
+    public void MusicOnOff() //Cuando Cargamos el juego reproducira la muscia si esta activado el toggle.
+    {
+        if(DataPersistence.sharedInstance.MusicToggle == 0)
+        {
+            MusicToggle.text = $"MusicOn:(true)";
+            GenerateAudioSource.Play();
+        }
+
+        else
+        {
+            MusicToggle.text = $"MusicOn:(false)";
+            GenerateAudioSource.Play();
+        }
     }
 
 
