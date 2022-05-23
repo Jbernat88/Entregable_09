@@ -9,8 +9,6 @@ public class DataPersistence : MonoBehaviour
 
     public int Level;
 
-    public bool HardMode;
-
     public string UsernameText;
 
     public float VolumeValue;
@@ -42,8 +40,6 @@ public class DataPersistence : MonoBehaviour
     {
         // Nivel
         PlayerPrefs.SetInt("LEVEL", Level);
-
-        //PlayerPrefs.SetBool("MODE", HardMode);
 
         PlayerPrefs.SetString("USERNAME", UsernameText);
 

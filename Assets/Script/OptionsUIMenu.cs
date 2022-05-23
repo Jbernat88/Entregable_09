@@ -22,9 +22,6 @@ public class OptionsUIMenu : MonoBehaviour
 
     public TMP_InputField UsernameText;
 
-    public TextMeshProUGUI DificultyText;
-    private bool HardMode;
-
     public Slider VolumeSlider;
 
     public Toggle ToggleMusic;
@@ -71,18 +68,6 @@ public class OptionsUIMenu : MonoBehaviour
         LevelsText.text = "Level: " + Level;
     }
 
-    public void ToggleFun(bool b)
-    {
-        if (b)
-        {
-            HardMode = true;           
-        }
-        else
-        {
-            HardMode = false;
-        }
-    }
-
     public void Volume(float volume)
     {
         VolumeValue = volume;
@@ -92,8 +77,6 @@ public class OptionsUIMenu : MonoBehaviour
     {
         // Persistencia de datos entre escenas
         DataPersistence.sharedInstance.Level = Level;
-
-        DataPersistence.sharedInstance.HardMode = HardMode;
 
         DataPersistence.sharedInstance.UsernameText = UsernameText.text;
 

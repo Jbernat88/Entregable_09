@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         else
         {
             MusicToggle.text = $"MusicOn:(false)";
-            GenerateAudioSource.Play();
+            GenerateAudioSource.Stop();
         }
     }
 
